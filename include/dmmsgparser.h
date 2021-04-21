@@ -27,10 +27,10 @@
 
 #include <google/protobuf/message.h>
 
-class IDMMsgSession
+class IDMMsgParserSession
 {
 public:
-    virtual ~IDMMsgSession(){}
+    virtual ~IDMMsgParserSession(){}
 
     virtual void DMAPI OnMessage(uint16_t msgID, void* data, int size) = 0;
 
@@ -39,10 +39,10 @@ public:
     virtual void DMAPI OnRecv(const char* data, int size) = 0;
 };
 
-class IDMMsgModule
+class IDMMsgParserModule
 {
 public:
-    virtual ~IDMMsgModule(){}
+    virtual ~IDMMsgParserModule(){}
 
     virtual void DMAPI Release(void) = 0;
 
@@ -56,12 +56,12 @@ public:
 
     virtual void DMAPI SetPacketParser(IDMPacketParser* sink) = 0;
 
-    virtual void DMAPI SetMsgSession(IDMMsgSession* sink) = 0;
+    virtual void DMAPI SetMsgSession(IDMMsgParserSession* sink) = 0;
 };
 
-struct DMMsgModuleDeleter
+struct DMMsgParserModuleDeleter
 {
-    inline void operator()(IDMMsgModule *module) const
+    inline void operator()(IDMMsgParserModule *module) const
     {
         if (module)
         {
@@ -78,20 +78,20 @@ enum MSG_STYLE
     MSG_STYLE_DMSTYLE = 1003,
 };
 
-IDMMsgModule* DMAPI DMMsgGetModule(MSG_STYLE eMsg = MSG_STYLE_DMSTYLE);
+IDMMsgParserModule* DMAPI DMMsgParserGetModule(MSG_STYLE eMsg = MSG_STYLE_DMSTYLE);
 
-typedef IDMMsgModule* (DMAPI* PFN_DMMsgGetModule)();
+typedef IDMMsgParserModule* (DMAPI* PFN_DMMsgParserGetModule)();
 
 
-class CDMMsgSession : public IDMMsgSession
+class CDMMsgParserSession : public IDMMsgParserSession
 {
 public:
-    CDMMsgSession()
+    CDMMsgParserSession()
     {
         m_module->SetMsgSession(this);
     }
 
-    virtual ~CDMMsgSession()
+    virtual ~CDMMsgParserSession()
     {
 
     }
@@ -107,7 +107,7 @@ public:
     }
 
 private:
-    std::unique_ptr<IDMMsgModule, DMMsgModuleDeleter> m_module{ DMMsgGetModule() };
+    std::unique_ptr<IDMMsgParserModule, DMMsgParserModuleDeleter> m_module{ DMMsgParserGetModule() };
 
 };
 

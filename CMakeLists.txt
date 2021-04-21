@@ -18,8 +18,7 @@ OPTION(USE_DMMSG "use dmmsg" OFF)
 
 ModuleImport("dmlog" "thirdparty/dmlog")
 ModuleImport("dmsys" "thirdparty/dmsys")
-
-LibImport("dmmsgparser" "src/dmmsgparser_module")
+DllImportDepends("dmmsgparser" "src/dmmsgparser_module" "dmsys")
 ExeImport("test" "dmmsgparser;dmsys;libprotobuf;libprotoc")
 
 #ADD_CUSTOM_COMMAND(

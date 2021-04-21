@@ -21,54 +21,60 @@
 
 #include "dmmsgparser_module.h"
 
-CDMMsg_module::CDMMsg_module()
-: m_poPacketParser(NULL), m_poMsgSession(NULL)
+CDMMsgParser_module::CDMMsgParser_module()
+    : m_poPacketParser(NULL), m_poMsgSession(NULL)
 {
     m_oNetBuffer.Init(65535);
 }
 
-CDMMsg_module::~CDMMsg_module()
+CDMMsgParser_module::~CDMMsgParser_module()
 {
 
 }
 
-void DMAPI CDMMsg_module::Release(void)
+void DMAPI CDMMsgParser_module::Release(void)
 {
     delete this;
 }
 
-void DMAPI CDMMsg_module::Test(void)
+void DMAPI CDMMsgParser_module::Test(void)
 {
     std::cout << "PROJECT_NAME = dmmsg" << std::endl;
     std::cout << "PROJECT_NAME_UP = DMMSG" << std::endl;
     std::cout << "PROJECT_NAME_LO = dmmsg" << std::endl;
 }
 
-void DMAPI CDMMsg_module::OnRecv(const char* data, int size)
+void DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
 {
-    if (!m_oNetBuffer.PushBack(data, size, m_poPacketParser->GetPacketHeaderSize())) {
+    if (!m_oNetBuffer.PushBack(data, size,
+                               m_poPacketParser->GetPacketHeaderSize()))
+    {
         return;
     }
 
-    for (;;) {
-        std::vector<char> vecBuff(m_poPacketParser->GetPacketHeaderSize());
+    for (;;)
+    {
         if (!m_oNetBuffer.Peek((char*)&m_vecBuff[0], m_vecBuff.size()))
         {
             return;
         }
 
-        int nUsed = m_poPacketParser->ParsePacket((const char*)&m_vecBuff[0], m_oNetBuffer.GetSize());
+        int nUsed = m_poPacketParser->ParsePacket((const char*)&m_vecBuff[0],
+                    m_oNetBuffer.GetSize());
 
-        if (0 == nUsed) {
+        if (0 == nUsed)
+        {
             break;
         }
 
-        if (nUsed < 0) {
+        if (nUsed < 0)
+        {
             DoClose("ParserPacket failed");
             return;
         }
 
         std::string strData;
+
         if (!m_oNetBuffer.PopFront(&strData, nUsed))
         {
             DoClose("ParserPacket failed2");
@@ -77,23 +83,27 @@ void DMAPI CDMMsg_module::OnRecv(const char* data, int size)
 
         uint16_t wMsgID = m_poPacketParser->GetMsgID((void*)&m_vecBuff[0]);
 
-        m_poMsgSession->OnMessage(wMsgID, strData.data() + m_poPacketParser->GetPacketHeaderSize(), strData.size() - m_poPacketParser->GetPacketHeaderSize());
+        m_poMsgSession->OnMessage(wMsgID,
+                                  strData.data() + m_poPacketParser->GetPacketHeaderSize(),
+                                  strData.size() - m_poPacketParser->GetPacketHeaderSize());
     }
 }
 
-void DMAPI CDMMsg_module::DoClose(const std::string& strError)
+void DMAPI CDMMsgParser_module::DoClose(const std::string& strError)
 {
 
 }
 
-bool DMAPI CDMMsg_module::SendMsg(uint16_t msgID, ::google::protobuf::Message& msg)
+bool DMAPI CDMMsgParser_module::SendMsg(uint16_t msgID,
+                                  ::google::protobuf::Message& msg)
 {
     std::string strMsg =  msg.SerializeAsString();
     int size = strMsg.size();
 
     std::string strHeader;
     strHeader.resize(m_poPacketParser->GetPacketHeaderSize());
-    int build = m_poPacketParser->BuildPacketHeader(&strHeader.front(), size, msgID);
+    int build = m_poPacketParser->BuildPacketHeader(&strHeader.front(), size,
+                msgID);
 
     std::string strData;
     strData.append(strHeader);
@@ -102,36 +112,41 @@ bool DMAPI CDMMsg_module::SendMsg(uint16_t msgID, ::google::protobuf::Message& m
     return m_poMsgSession->Send(strData.data(), strData.size());
 }
 
-void DMAPI CDMMsg_module::SetPacketParser(IDMPacketParser* sink)
+void DMAPI CDMMsgParser_module::SetPacketParser(IDMPacketParser* sink)
 {
     m_poPacketParser = sink;
 
     m_vecBuff.resize(m_poPacketParser->GetPacketHeaderSize());
 }
 
-void DMAPI CDMMsg_module::SetMsgSession(IDMMsgSession* sink)
+void DMAPI CDMMsgParser_module::SetMsgSession(IDMMsgParserSession* sink)
 {
     m_poMsgSession = sink;
 }
-
-IDMMsgModule* DMAPI DMMsgGetModule(MSG_STYLE eMsg)
+ 
+IDMMsgParserModule* DMAPI DMMsgParserGetModule(MSG_STYLE eMsg)
 {
-    IDMMsgModule* poModule = new CDMMsg_module();
+    IDMMsgParserModule* poModule = new CDMMsgParser_module();
+
     if (NULL == poModule)
     {
         return nullptr;
     }
+
     switch (eMsg)
     {
     case MSG_STYLE_NC:
         poModule->SetPacketParser(HNCParser::Instance());
         break;
+
     case MSG_STYLE_DMSTYLE:
         poModule->SetPacketParser(HDMPacketParser::Instance());
         break;
+
     default:
         // user define
         return nullptr;
     }
+
     return poModule;
 }

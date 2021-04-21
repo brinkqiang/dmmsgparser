@@ -23,13 +23,13 @@
 #include "dmnetbuffer.h"
 #include "msgdispatcher.sys.h"
 
-class CDMMsg_module :
-    public IDMMsgModule
+class CDMMsgParser_module :
+    public IDMMsgParserModule
 {
 public:
-    CDMMsg_module();
+    CDMMsgParser_module();
     
-    virtual ~CDMMsg_module();
+    virtual ~CDMMsgParser_module();
 
     virtual void DMAPI Release(void);
 
@@ -43,7 +43,7 @@ public:
 
     virtual void DMAPI SetPacketParser(IDMPacketParser* sink);
 
-    virtual void DMAPI SetMsgSession(IDMMsgSession* sink);
+    virtual void DMAPI SetMsgSession(IDMMsgParserSession* sink);
 
 	template<typename T>
 	uint16_t GetMSGID()
@@ -53,7 +53,7 @@ public:
 
 private:
     IDMPacketParser* m_poPacketParser;
-    IDMMsgSession* m_poMsgSession;
+    IDMMsgParserSession* m_poMsgSession;
     DMMESSAGE_QUEUE m_WriteMsgs;
     CDMNetBuffer m_oNetBuffer;
 

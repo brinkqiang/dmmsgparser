@@ -1,9 +1,9 @@
 
-#include "dmmsg.h"
+#include "dmmsgparser.h"
 #include <memory>
 #include "person.msg.h"
 
-class CPlayer : public CDMMsgSession
+class CPlayer : public CDMMsgParserSession
     , public CDMDispatcher_db
 {
 public:
@@ -38,7 +38,7 @@ public:
     template<class T>
     bool DMAPI SendMsg(T& msg)
     {
-	return CDMMsgSession::SendMsg(GetMsgID<T>(), msg);
+	    return CDMMsgParserSession::SendMsg(GetMsgID<T>(), msg);
     }
 
 };
