@@ -5,12 +5,6 @@
 # yum -y install gcc gcc-c++ autoconf libtool automake make
 #
 
-# - clone code
-# git clone https://github.com/brinkqiang/dmmsg.git
-# pushd dmmsg
-# git submodule update --init --recursive
-#
-
 # pushd thirdparty/depends_path
 # libtoolize && aclocal && autoheader && autoconf && automake --add-missing
 # sh configure

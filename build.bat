@@ -1,9 +1,3 @@
-
-rem - clone code
-rem git clone https://github.com/brinkqiang/dmmsg.git
-rem pushd dmmsg
-rem git submodule update --init --recursive
-
 rmdir /S /Q build
 mkdir build
 pushd build
