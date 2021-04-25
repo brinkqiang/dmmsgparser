@@ -46,8 +46,7 @@ void DMAPI CDMMsgParser_module::Test(void)
 
 void DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
 {
-    if (!m_oNetBuffer.PushBack(data, size,
-                               m_poPacketParser->GetPacketHeaderSize()))
+    if (!m_oNetBuffer.PushBack(data, size, m_poPacketParser->GetPacketHeaderSize()))
     {
         return;
     }
@@ -60,7 +59,7 @@ void DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
         }
 
         int nUsed = m_poPacketParser->ParsePacket((const char*)&m_vecBuff[0],
-                    m_oNetBuffer.GetSize());
+            m_oNetBuffer.GetSize());
 
         if (0 == nUsed)
         {
@@ -69,8 +68,12 @@ void DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
 
         if (nUsed < 0)
         {
-            DoClose("ParserPacket failed");
-            return;
+            if (!m_oNetBuffer.DiscardFront(1))
+            {
+                DoClose(fmt::format("ParserPacket failed2 error:{}", nUsed));
+                return;
+            }
+            continue;
         }
 
         std::string strData;
@@ -84,8 +87,8 @@ void DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
         uint16_t wMsgID = m_poPacketParser->GetMsgID((void*)&m_vecBuff[0]);
 
         m_poMsgSession->OnMessage(wMsgID,
-                                  strData.data() + m_poPacketParser->GetPacketHeaderSize(),
-                                  strData.size() - m_poPacketParser->GetPacketHeaderSize());
+            strData.data() + m_poPacketParser->GetPacketHeaderSize(),
+            strData.size() - m_poPacketParser->GetPacketHeaderSize());
     }
 }
 
@@ -95,15 +98,15 @@ void DMAPI CDMMsgParser_module::DoClose(const std::string& strError)
 }
 
 bool DMAPI CDMMsgParser_module::SendMsg(uint16_t msgID,
-                                  ::google::protobuf::Message& msg)
+    ::google::protobuf::Message& msg)
 {
-    std::string strMsg =  msg.SerializeAsString();
+    std::string strMsg = msg.SerializeAsString();
     int size = strMsg.size();
 
     std::string strHeader;
     strHeader.resize(m_poPacketParser->GetPacketHeaderSize());
     int build = m_poPacketParser->BuildPacketHeader(&strHeader.front(), size,
-                msgID);
+        msgID);
 
     std::string strData;
     strData.append(strHeader);
@@ -123,7 +126,7 @@ void DMAPI CDMMsgParser_module::SetMsgSession(IDMMsgParserSession* sink)
 {
     m_poMsgSession = sink;
 }
- 
+
 IDMMsgParserModule* DMAPI DMMsgParserGetModule(MSG_STYLE eMsg)
 {
     IDMMsgParserModule* poModule = new CDMMsgParser_module();
