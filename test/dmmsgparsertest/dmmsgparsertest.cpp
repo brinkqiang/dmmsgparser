@@ -27,7 +27,6 @@ public:
         return true;
     }
 
-
     virtual int Ontb_Person(::google::protobuf::Message& msg, int nLen, const void* pObject)
     {
         ::db::tb_Person* pData = dynamic_cast<::db::tb_Person*>(&msg);
