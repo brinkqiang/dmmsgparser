@@ -40,7 +40,7 @@ void CDMNetBuffer::Reset() {
     m_pTail = m_pBuffer;
 }
 
-bool CDMNetBuffer::PushBack(const char* pData, int32_t nLen, int32_t pack) {
+bool CDMNetBuffer::PushBack(const char* pData, int32_t nLen) {
     int32_t nDist = (int32_t)(m_pTail + (uint32_t)m_nSize - m_pHead);
     int32_t nUsed = nDist >= m_nSize ? (nDist - m_nSize) : nDist;
 
@@ -59,7 +59,7 @@ bool CDMNetBuffer::PushBack(const char* pData, int32_t nLen, int32_t pack) {
         memmove(m_pTail, pData, nLen);
         m_pTail += nLen;
     }
-
+    
     return true;
 }
 

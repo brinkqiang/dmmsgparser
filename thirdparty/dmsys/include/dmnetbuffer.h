@@ -13,7 +13,7 @@ class CDMNetBuffer {
     bool Init(int32_t nSize);
     void Reset();
 
-    bool PushBack(const char* pData, int32_t nLen, int32_t pack = 0);
+    bool PushBack(const char* pData, int32_t nLen);
 
     bool PopFront(char* pBuf, int32_t nLen);
     bool PopFront(std::string* data, int32_t nLen);
