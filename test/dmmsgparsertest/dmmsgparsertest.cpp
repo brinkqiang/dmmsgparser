@@ -28,8 +28,7 @@ public:
     
     virtual bool DMAPI Send(const char* data, int size)
     {
-        OnRecv(data, size);
-        return true;
+        return 0 == OnRecv(data, size);
     }
 
     virtual int Ontb_Person(::google::protobuf::Message& msg, int nLen, const void* pObject)
