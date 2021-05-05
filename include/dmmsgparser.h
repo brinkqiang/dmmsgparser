@@ -32,11 +32,13 @@ class IDMMsgParserSession
 public:
     virtual ~IDMMsgParserSession(){}
 
+    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& head, const std::string& data) = 0;
+
     virtual void DMAPI OnMessage(uint16_t msgID, void* data, int size) = 0;
 
     virtual bool DMAPI Send(const char* data, int size) = 0;
 
-    virtual void DMAPI OnRecv(const char* data, int size) = 0;
+    virtual int DMAPI OnRecv(const char* data, int size) = 0;
 };
 
 class IDMMsgParserModule
@@ -48,7 +50,7 @@ public:
 
     virtual void DMAPI Test(void) = 0;
 
-    virtual void DMAPI OnRecv(const char* data, int size) = 0;
+    virtual int DMAPI OnRecv(const char* data, int size) = 0;
 
     virtual void DMAPI DoClose(const std::string& strError) = 0;
 
@@ -96,9 +98,9 @@ public:
 
     }
 
-    virtual void DMAPI OnRecv(const char* data, int size)
+    virtual int DMAPI OnRecv(const char* data, int size)
     {
-        m_module.get()->OnRecv(data, size);
+        return m_module.get()->OnRecv(data, size);
     }
 
     virtual bool DMAPI SendMsg(uint16_t wMsgID, ::google::protobuf::Message& msg)

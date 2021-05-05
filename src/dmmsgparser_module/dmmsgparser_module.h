@@ -35,7 +35,7 @@ public:
 
     virtual void DMAPI Test(void);
 
-    virtual void DMAPI OnRecv(const char* data, int size);
+    virtual int DMAPI OnRecv(const char* data, int size);
 
     virtual void DMAPI DoClose(const std::string& strError);
 

@@ -44,18 +44,18 @@ void DMAPI CDMMsgParser_module::Test(void)
     std::cout << "PROJECT_NAME_LO = dmmsg" << std::endl;
 }
 
-void DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
+int DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
 {
     if (!m_oNetBuffer.PushBack(data, size))
     {
-        return;
+        return -1;
     }
 
     for (;;)
     {
         if (!m_oNetBuffer.Peek((char*)&m_vecBuff[0], m_vecBuff.size()))
         {
-            return;
+            return 0;
         }
 
         int nUsed = m_poPacketParser->ParsePacket((const char*)&m_vecBuff[0],
@@ -71,25 +71,33 @@ void DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
             if (!m_oNetBuffer.DiscardFront(1))
             {
                 DoClose(fmt::format("ParserPacket failed2 error:{}", nUsed));
-                return;
+                return -2;
             }
             continue;
         }
 
-        std::string strData;
+        std::string strHead;
 
-        if (!m_oNetBuffer.PopFront(&strData, nUsed))
+        if (!m_oNetBuffer.PopFront(&strHead, m_vecBuff.size()))
         {
             DoClose("ParserPacket failed2");
-            return;
+            return -3;
+        }
+
+        std::string strData;
+
+        if (!m_oNetBuffer.PopFront(&strData, nUsed - m_vecBuff.size()))
+        {
+            DoClose("ParserPacket failed2");
+            return -4;
         }
 
         uint16_t wMsgID = m_poPacketParser->GetMsgID((void*)&m_vecBuff[0]);
 
-        m_poMsgSession->OnMessage(wMsgID,
-            strData.data() + m_poPacketParser->GetPacketHeaderSize(),
-            strData.size() - m_poPacketParser->GetPacketHeaderSize());
+        m_poMsgSession->OnMessageInline(wMsgID, strHead, strData);
     }
+
+    return 0;
 }
 
 void DMAPI CDMMsgParser_module::DoClose(const std::string& strError)
