@@ -98,6 +98,11 @@ public:
 
     }
 
+    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& head, const std::string& data)
+    {
+        OnMessage(msgID, (void*)data.data(), data.size());
+    }
+
     virtual int DMAPI OnRecv(const char* data, int size)
     {
         return m_module.get()->OnRecv(data, size);

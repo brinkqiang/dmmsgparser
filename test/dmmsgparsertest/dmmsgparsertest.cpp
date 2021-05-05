@@ -15,11 +15,6 @@ public:
     virtual ~CPlayer()
     {
     }
-    
-    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& head, const std::string& data)
-    {
-        OnMessage(msgID, (void*)data.data(), data.size());
-    }
 
     virtual void DMAPI OnMessage(uint16_t msgID, void* data, int size)
     {
