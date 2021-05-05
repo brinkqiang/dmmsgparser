@@ -46,7 +46,7 @@ void DMAPI CDMMsgParser_module::Test(void)
 
 void DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
 {
-    if (!m_oNetBuffer.PushBack(data, size, m_poPacketParser->GetPacketHeaderSize()))
+    if (!m_oNetBuffer.PushBack(data, size))
     {
         return;
     }
