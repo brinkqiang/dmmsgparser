@@ -59,7 +59,7 @@ int DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
         }
 
         int nUsed = m_poPacketParser->ParsePacket((const char*)&m_vecBuff[0],
-            m_oNetBuffer.GetSize());
+                    m_oNetBuffer.GetSize());
 
         if (0 == nUsed)
         {
@@ -73,6 +73,7 @@ int DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
                 DoClose(fmt::format("ParserPacket failed2 error:{}", nUsed));
                 return -2;
             }
+
             continue;
         }
 
@@ -80,7 +81,7 @@ int DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
 
         if (!m_oNetBuffer.PopFront(&strHead, m_vecBuff.size()))
         {
-            DoClose("ParserPacket failed2");
+            DoClose("ParserPacket failed");
             return -3;
         }
 
@@ -106,7 +107,7 @@ void DMAPI CDMMsgParser_module::DoClose(const std::string& strError)
 }
 
 bool DMAPI CDMMsgParser_module::SendMsg(uint16_t msgID,
-    ::google::protobuf::Message& msg)
+                                        ::google::protobuf::Message& msg)
 {
     std::string strMsg = msg.SerializeAsString();
     int size = strMsg.size();
@@ -114,7 +115,7 @@ bool DMAPI CDMMsgParser_module::SendMsg(uint16_t msgID,
     std::string strHeader;
     strHeader.resize(m_poPacketParser->GetPacketHeaderSize());
     int build = m_poPacketParser->BuildPacketHeader(&strHeader.front(), size,
-        msgID);
+                msgID);
 
     std::string strData;
     strData.append(strHeader);
@@ -146,6 +147,10 @@ IDMMsgParserModule* DMAPI DMMsgParserGetModule(MSG_STYLE eMsg)
 
     switch (eMsg)
     {
+    case MSG_STYLE_LIGHT:
+        poModule->SetPacketParser(HPacketParser::Instance());
+        break;
+
     case MSG_STYLE_NC:
         poModule->SetPacketParser(HNCParser::Instance());
         break;

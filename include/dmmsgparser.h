@@ -30,9 +30,10 @@
 class IDMMsgParserSession
 {
 public:
-    virtual ~IDMMsgParserSession(){}
+    virtual ~IDMMsgParserSession() {}
 
-    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& head, const std::string& data) = 0;
+    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& head,
+                                       const std::string& data) = 0;
 
     virtual void DMAPI OnMessage(uint16_t msgID, void* data, int size) = 0;
 
@@ -44,7 +45,7 @@ public:
 class IDMMsgParserModule
 {
 public:
-    virtual ~IDMMsgParserModule(){}
+    virtual ~IDMMsgParserModule() {}
 
     virtual void DMAPI Release(void) = 0;
 
@@ -54,7 +55,8 @@ public:
 
     virtual void DMAPI DoClose(const std::string& strError) = 0;
 
-    virtual bool DMAPI SendMsg(uint16_t msgID, ::google::protobuf::Message& msg) = 0;
+    virtual bool DMAPI SendMsg(uint16_t msgID,
+                               ::google::protobuf::Message& msg) = 0;
 
     virtual void DMAPI SetPacketParser(IDMPacketParser* sink) = 0;
 
@@ -63,7 +65,7 @@ public:
 
 struct DMMsgParserModuleDeleter
 {
-    inline void operator()(IDMMsgParserModule *module) const
+    inline void operator()(IDMMsgParserModule* module) const
     {
         if (module)
         {
@@ -72,15 +74,17 @@ struct DMMsgParserModuleDeleter
     }
 };
 
-enum MSG_STYLE 
+enum MSG_STYLE
 {
     MSG_STYLE_UNKNOWN = 0,
+    MSG_STYLE_LIGHT = 1000,
     MSG_STYLE_STD = 1001,
     MSG_STYLE_NC = 1002,
     MSG_STYLE_DMSTYLE = 1003,
 };
 
-IDMMsgParserModule* DMAPI DMMsgParserGetModule(MSG_STYLE eMsg = MSG_STYLE_DMSTYLE);
+IDMMsgParserModule* DMAPI DMMsgParserGetModule(MSG_STYLE eMsg =
+            MSG_STYLE_LIGHT);
 
 typedef IDMMsgParserModule* (DMAPI* PFN_DMMsgParserGetModule)();
 
@@ -98,7 +102,8 @@ public:
 
     }
 
-    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& head, const std::string& data)
+    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& head,
+                                       const std::string& data)
     {
         OnMessage(msgID, (void*)data.data(), data.size());
     }

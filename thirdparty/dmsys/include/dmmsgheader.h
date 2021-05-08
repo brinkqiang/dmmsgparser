@@ -12,17 +12,15 @@
 
 #define PACKET_MARK_ERROR       (-1000)
 #define PACKET_CHECKSUM_ERROR   (-1001)
-typedef struct tagPacketHeader {
-    uint16_t wMark;
 
+typedef struct tagPacketHeader
+{
     uint16_t wDataLen;
-    uint16_t wCheckSum;
-
-    uint8_t  byFlags;
-    uint8_t  byOptLen;
+    uint16_t wMsgID;
 } SPacketHeader;
 
-typedef struct tagDMPacketHeader {
+typedef struct tagDMPacketHeader
+{
     uint16_t wMark;
     uint16_t wCheckSum;
     int32_t nDataLen;
