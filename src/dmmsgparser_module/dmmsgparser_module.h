@@ -23,37 +23,36 @@
 #include "dmnetbuffer.h"
 #include "msgdispatcher.sys.h"
 
-class CDMMsgParser_module :
-    public IDMMsgParserModule
+class CDMMsgParser_module : public IDMMsgParserModule
 {
 public:
     CDMMsgParser_module();
-    
+
     virtual ~CDMMsgParser_module();
 
     virtual void DMAPI Release(void);
 
     virtual void DMAPI Test(void);
 
-    virtual int DMAPI OnRecv(const char* data, int size);
+    virtual int DMAPI OnRecv(const char *data, int size);
 
-    virtual void DMAPI DoClose(const std::string& strError);
+    virtual void DMAPI DoClose(const std::string &strError);
 
-    virtual bool DMAPI SendMsg(uint16_t msgID, ::google::protobuf::Message& msg);
+    virtual bool DMAPI SendMsg(uint16_t msgID, ::google::protobuf::Message &msg);
 
-    virtual void DMAPI SetPacketParser(IDMPacketParser* sink);
+    virtual void DMAPI SetPacketParser(IDMPacketParser *sink);
 
-    virtual void DMAPI SetMsgSession(IDMMsgParserSession* sink);
+    virtual void DMAPI SetMsgSession(IDMMsgParserSession *sink);
 
-	template<typename T>
-	uint16_t GetMSGID()
-	{
-		return GetMsgID<T>();
-	}
+    template <typename T>
+    uint16_t GetMSGID()
+    {
+        return GetMsgID<T>();
+    }
 
 private:
-    IDMPacketParser* m_poPacketParser;
-    IDMMsgParserSession* m_poMsgSession;
+    IDMPacketParser *m_poPacketParser;
+    IDMMsgParserSession *m_poMsgSession;
     DMMESSAGE_QUEUE m_WriteMsgs;
     CDMNetBuffer m_oNetBuffer;
 
