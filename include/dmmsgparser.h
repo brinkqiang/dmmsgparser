@@ -27,6 +27,15 @@
 
 #include <google/protobuf/message.h>
 
+enum MSG_STYLE : int32_t
+{
+    MSG_STYLE_UNKNOWN = 0,
+    MSG_STYLE_LIGHT = 1000,
+    MSG_STYLE_STD = 1001,
+    MSG_STYLE_NC = 1002,
+    MSG_STYLE_DMSTYLE = 1003,
+};
+
 class IDMMsgParserSession
 {
 public:
@@ -40,6 +49,8 @@ public:
     virtual bool DMAPI Send(const char* data, int size) = 0;
 
     virtual int DMAPI OnRecv(const char* data, int size) = 0;
+
+    virtual MSG_STYLE GetMsgStyle() = 0;
 };
 
 class IDMMsgParserModule
@@ -74,14 +85,6 @@ struct DMMsgParserModuleDeleter
     }
 };
 
-enum MSG_STYLE
-{
-    MSG_STYLE_UNKNOWN = 0,
-    MSG_STYLE_LIGHT = 1000,
-    MSG_STYLE_STD = 1001,
-    MSG_STYLE_NC = 1002,
-    MSG_STYLE_DMSTYLE = 1003,
-};
 
 IDMMsgParserModule* DMAPI DMMsgParserGetModule(MSG_STYLE eMsg =
             MSG_STYLE_LIGHT);
@@ -118,8 +121,12 @@ public:
         return m_module.get()->SendMsg(wMsgID, msg);
     }
 
+    virtual MSG_STYLE GetMsgStyle()
+    {
+        return MSG_STYLE_LIGHT;
+    }
 private:
-    std::unique_ptr<IDMMsgParserModule, DMMsgParserModuleDeleter> m_module{ DMMsgParserGetModule() };
+    std::unique_ptr<IDMMsgParserModule, DMMsgParserModuleDeleter> m_module{ DMMsgParserGetModule(GetMsgStyle()) };
 
 };
 
