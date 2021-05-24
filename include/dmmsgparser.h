@@ -41,8 +41,8 @@ class IDMMsgParserSession
 public:
     virtual ~IDMMsgParserSession() {}
 
-    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& head,
-                                       const std::string& data) = 0;
+    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& data,
+                                       int size) = 0;
 
     virtual void DMAPI OnMessage(uint16_t msgID, void* data, int size) = 0;
 
@@ -105,10 +105,10 @@ public:
 
     }
 
-    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& head,
-                                       const std::string& data)
+    virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& data,
+                                       int size)
     {
-        OnMessage(msgID, (void*)data.data(), data.size());
+        OnMessage(msgID, (void*)(data.data() + size), data.size() - size);
     }
 
     virtual int DMAPI OnRecv(const char* data, int size)
