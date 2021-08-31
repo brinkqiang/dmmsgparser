@@ -41,6 +41,8 @@ class IDMMsgParserSession
 public:
     virtual ~IDMMsgParserSession() {}
 
+    virtual bool DMAPI SessionInit() = 0;
+
     virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& data,
                                        int size) = 0;
 
@@ -97,12 +99,24 @@ class CDMMsgParserSession : public IDMMsgParserSession
 public:
     CDMMsgParserSession()
     {
-        m_module->SetMsgSession(this);
+
     }
 
     virtual ~CDMMsgParserSession()
     {
 
+    }
+
+    virtual bool DMAPI SessionInit()
+    {
+        auto module = DMMsgParserGetModule(GetMsgStyle());
+        if (nullptr == module)
+        {
+            return false;
+        }
+        m_module.reset(module);
+        m_module->SetMsgSession(this);
+        return true;
     }
 
     virtual void DMAPI OnMessageInline(uint16_t msgID, const std::string& data,
@@ -126,8 +140,8 @@ public:
         return MSG_STYLE_LIGHT;
     }
 private:
-    std::unique_ptr<IDMMsgParserModule, DMMsgParserModuleDeleter> m_module{ DMMsgParserGetModule(GetMsgStyle()) };
-
+    std::unique_ptr<IDMMsgParserModule, DMMsgParserModuleDeleter> m_module;
+    
 };
 
 #endif // __DMMSG_H_INCLUDE__

@@ -16,6 +16,11 @@ public:
     {
     }
 
+    virtual MSG_STYLE GetMsgStyle()
+    {
+        return MSG_STYLE_DMSTYLE;
+    }
+
     virtual void DMAPI OnMessage(uint16_t msgID, void* data, int size)
     {
         NetCall(msgID, data, size, this);
@@ -46,6 +51,11 @@ using namespace std;
 int main( int argc, char* argv[] ) {
 
     CPlayer oPlayer;
+
+    if (!oPlayer.SessionInit())
+    {
+        return -1;
+    }
 
     db::tb_Person tb;
 
