@@ -69,7 +69,7 @@ int DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
         {
             if (!m_oNetBuffer.DiscardFront(1))
             {
-                DoClose(fmt::format("ParserPacket failed2 error:{}", nUsed));
+                DoClose(fmt::format("ParserPacket failed error:{}", nUsed));
                 return -2;
             }
 
@@ -80,7 +80,7 @@ int DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
 
         if (!m_oNetBuffer.PopFront(&strData, nUsed))
         {
-            DoClose("ParserPacket failed2");
+            DoClose("ParserPacket PopFront failed");
             return -4;
         }
 
