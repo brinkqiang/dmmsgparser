@@ -45,6 +45,7 @@ void DMAPI CDMMsgParser_module::Test(void)
 
 int DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
 {
+    // 把收到的数据 塞到缓冲区
     if (!m_oNetBuffer.PushBack(data, size))
     {
         return -1;
@@ -52,11 +53,13 @@ int DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
 
     for (;;)
     {
+        // 查看缓冲区 包头
         if (!m_oNetBuffer.Peek((char*)&m_vecBuff[0], m_vecBuff.size()))
         {
             return 0;
         }
 
+        // 检查 包头以及后续数据是否完整
         int nUsed = m_poPacketParser->ParsePacket((const char*)&m_vecBuff[0],
                     m_oNetBuffer.GetSize());
 
@@ -76,6 +79,7 @@ int DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
             continue;
         }
 
+        // 弹出数据
         std::string strData;
 
         if (!m_oNetBuffer.PopFront(&strData, nUsed))
@@ -85,7 +89,7 @@ int DMAPI CDMMsgParser_module::OnRecv(const char* data, int size)
         }
 
         uint16_t wMsgID = m_poPacketParser->GetMsgID((void*)&m_vecBuff[0]);
-
+        // 回调应用层
         m_poMsgSession->OnMessageInline(wMsgID, strData, (int)m_vecBuff.size());
     }
 
