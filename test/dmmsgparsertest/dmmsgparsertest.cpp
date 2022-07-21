@@ -10,6 +10,7 @@ public:
     CPlayer()
     {
         CDMDispatcher_db::Init();
+        SessionInit();
     }
 
     virtual ~CPlayer()
@@ -25,7 +26,7 @@ public:
     {
         NetCall(msgID, data, size, this);
     }
-    
+
     virtual bool DMAPI Send(const char* data, int size)
     {
         return 0 == OnRecv(data, size);
@@ -41,14 +42,14 @@ public:
     template<class T>
     bool DMAPI SendMsg(T& msg)
     {
-	    return CDMMsgParserSession::SendMsg(GetMsgID<T>(), msg);
+        return CDMMsgParserSession::SendMsg(GetMsgID<T>(), msg);
     }
 
 };
 
 using namespace std;
 
-int main( int argc, char* argv[] ) {
+int main(int argc, char* argv[]) {
 
     CPlayer oPlayer;
 
