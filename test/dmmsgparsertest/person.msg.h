@@ -30,7 +30,7 @@ public:
 class CDMDispatcher_db : public TMsgDispatcherPB<CDMDispatcher_db>
 {
 public:
-    CDMDispatcher_db(){}
+    CDMDispatcher_db(){Init();}
     virtual ~CDMDispatcher_db(){}
 
     bool Init();
