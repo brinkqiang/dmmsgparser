@@ -5,128 +5,95 @@
 
 #include <algorithm>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/extension_set.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
-// This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-#include "third_party/protobuf/version.h"
-#endif
 // @@protoc_insertion_point(includes)
-
+#include <google/protobuf/port_def.inc>
 namespace db {
 class tb_PersonDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<tb_Person>
-      _instance;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<tb_Person> _instance;
 } _tb_Person_default_instance_;
 }  // namespace db
-namespace protobuf_person_2eproto {
-static void InitDefaultstb_Person() {
+static void InitDefaultsscc_info_tb_Person_person_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::db::_tb_Person_default_instance_;
     new (ptr) ::db::tb_Person();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::db::tb_Person::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_tb_Person =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultstb_Person}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_tb_Person_person_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_tb_Person_person_2eproto}, {}};
 
-void InitDefaults() {
-  ::google::protobuf::internal::InitSCC(&scc_info_tb_Person.base);
-}
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_person_2eproto[1];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_person_2eproto[2];
+static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_person_2eproto = nullptr;
 
-::google::protobuf::Metadata file_level_metadata[1];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
-
-const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_person_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, uuid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, job_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, name_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, number_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, email_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, phonetype_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, money_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, cash_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, itemlist_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, equiplist_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, tasklist_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::db::tb_Person, skilllist_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, uuid_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, job_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, name_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, number_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, email_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, phonetype_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, money_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, cash_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, itemlist_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, equiplist_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, tasklist_),
+  PROTOBUF_FIELD_OFFSET(::db::tb_Person, skilllist_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::db::tb_Person)},
 };
 
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::db::_tb_Person_default_instance_),
+static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::db::_tb_Person_default_instance_),
 };
 
-void protobuf_AssignDescriptors() {
-  AddDescriptors();
-  AssignDescriptors(
-      "person.proto", schemas, file_default_instances, TableStruct::offsets,
-      file_level_metadata, file_level_enum_descriptors, NULL);
-}
+const char descriptor_table_protodef_person_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
+  "\n\014person.proto\022\002db\"\334\001\n\ttb_Person\022\014\n\004uuid"
+  "\030\001 \001(\004\022\013\n\003job\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\016\n\006num"
+  "ber\030\004 \001(\004\022\r\n\005email\030\005 \001(\t\022 \n\tphonetype\030\006 "
+  "\001(\0162\r.db.PhoneType\022\r\n\005money\030\007 \001(\001\022\014\n\004cas"
+  "h\030\010 \001(\002\022\020\n\010itemlist\030\024 \001(\014\022\021\n\tequiplist\030\025"
+  " \001(\014\022\020\n\010tasklist\030\026 \001(\014\022\021\n\tskilllist\030\027 \001("
+  "\014*0\n\005MSGID\022\021\n\rMSGID_default\020\000\022\024\n\017MSGID_t"
+  "b_Person\020\354\007*+\n\tPhoneType\022\n\n\006MOBILE\020\000\022\010\n\004"
+  "HOME\020\001\022\010\n\004WORK\020\002b\006proto3"
+  ;
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_person_2eproto_deps[1] = {
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_person_2eproto_sccs[1] = {
+  &scc_info_tb_Person_person_2eproto.base,
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_person_2eproto_once;
+const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_person_2eproto = {
+  false, false, descriptor_table_protodef_person_2eproto, "person.proto", 344,
+  &descriptor_table_person_2eproto_once, descriptor_table_person_2eproto_sccs, descriptor_table_person_2eproto_deps, 1, 0,
+  schemas, file_default_instances, TableStruct_person_2eproto::offsets,
+  file_level_metadata_person_2eproto, 1, file_level_enum_descriptors_person_2eproto, file_level_service_descriptors_person_2eproto,
+};
 
-void protobuf_AssignDescriptorsOnce() {
-  static ::google::protobuf::internal::once_flag once;
-  ::google::protobuf::internal::call_once(once, protobuf_AssignDescriptors);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
-}
-
-void AddDescriptorsImpl() {
-  InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\014person.proto\022\002db\"\334\001\n\ttb_Person\022\014\n\004uuid"
-      "\030\001 \001(\004\022\013\n\003job\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\016\n\006num"
-      "ber\030\004 \001(\004\022\r\n\005email\030\005 \001(\t\022 \n\tphonetype\030\006 "
-      "\001(\0162\r.db.PhoneType\022\r\n\005money\030\007 \001(\001\022\014\n\004cas"
-      "h\030\010 \001(\002\022\020\n\010itemlist\030\024 \001(\014\022\021\n\tequiplist\030\025"
-      " \001(\014\022\020\n\010tasklist\030\026 \001(\014\022\021\n\tskilllist\030\027 \001("
-      "\014*0\n\005MSGID\022\021\n\rMSGID_default\020\000\022\024\n\017MSGID_t"
-      "b_Person\020\354\007*+\n\tPhoneType\022\n\n\006MOBILE\020\000\022\010\n\004"
-      "HOME\020\001\022\010\n\004WORK\020\002b\006proto3"
-  };
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 344);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "person.proto", &protobuf_RegisterTypes);
-}
-
-void AddDescriptors() {
-  static ::google::protobuf::internal::once_flag once;
-  ::google::protobuf::internal::call_once(once, AddDescriptorsImpl);
-}
-// Force AddDescriptors() to be called at dynamic initialization time.
-struct StaticDescriptorInitializer {
-  StaticDescriptorInitializer() {
-    AddDescriptors();
-  }
-} static_descriptor_initializer;
-}  // namespace protobuf_person_2eproto
+// Force running AddDescriptors() at dynamic initialization time.
+static bool dynamic_init_dummy_person_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_person_2eproto)), true);
 namespace db {
-const ::google::protobuf::EnumDescriptor* MSGID_descriptor() {
-  protobuf_person_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_person_2eproto::file_level_enum_descriptors[0];
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MSGID_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_person_2eproto);
+  return file_level_enum_descriptors_person_2eproto[0];
 }
 bool MSGID_IsValid(int value) {
   switch (value) {
@@ -138,9 +105,9 @@ bool MSGID_IsValid(int value) {
   }
 }
 
-const ::google::protobuf::EnumDescriptor* PhoneType_descriptor() {
-  protobuf_person_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_person_2eproto::file_level_enum_descriptors[1];
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PhoneType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_person_2eproto);
+  return file_level_enum_descriptors_person_2eproto[1];
 }
 bool PhoneType_IsValid(int value) {
   switch (value) {
@@ -156,57 +123,48 @@ bool PhoneType_IsValid(int value) {
 
 // ===================================================================
 
-void tb_Person::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int tb_Person::kUuidFieldNumber;
-const int tb_Person::kJobFieldNumber;
-const int tb_Person::kNameFieldNumber;
-const int tb_Person::kNumberFieldNumber;
-const int tb_Person::kEmailFieldNumber;
-const int tb_Person::kPhonetypeFieldNumber;
-const int tb_Person::kMoneyFieldNumber;
-const int tb_Person::kCashFieldNumber;
-const int tb_Person::kItemlistFieldNumber;
-const int tb_Person::kEquiplistFieldNumber;
-const int tb_Person::kTasklistFieldNumber;
-const int tb_Person::kSkilllistFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class tb_Person::_Internal {
+ public:
+};
 
-tb_Person::tb_Person()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_person_2eproto::scc_info_tb_Person.base);
+tb_Person::tb_Person(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:db.tb_Person)
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:db.tb_Person)
 }
 tb_Person::tb_Person(const tb_Person& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.name().size() > 0) {
-    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
   }
-  email_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.email().size() > 0) {
-    email_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.email_);
+  email_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_email().empty()) {
+    email_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_email(), 
+      GetArena());
   }
-  itemlist_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.itemlist().size() > 0) {
-    itemlist_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.itemlist_);
+  itemlist_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_itemlist().empty()) {
+    itemlist_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_itemlist(), 
+      GetArena());
   }
-  equiplist_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.equiplist().size() > 0) {
-    equiplist_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.equiplist_);
+  equiplist_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_equiplist().empty()) {
+    equiplist_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_equiplist(), 
+      GetArena());
   }
-  tasklist_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.tasklist().size() > 0) {
-    tasklist_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.tasklist_);
+  tasklist_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_tasklist().empty()) {
+    tasklist_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_tasklist(), 
+      GetArena());
   }
-  skilllist_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.skilllist().size() > 0) {
-    skilllist_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.skilllist_);
+  skilllist_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_skilllist().empty()) {
+    skilllist_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_skilllist(), 
+      GetArena());
   }
   ::memcpy(&uuid_, &from.uuid_,
     static_cast<size_t>(reinterpret_cast<char*>(&cash_) -
@@ -215,437 +173,280 @@ tb_Person::tb_Person(const tb_Person& from)
 }
 
 void tb_Person::SharedCtor() {
-  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  email_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  itemlist_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  equiplist_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  tasklist_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  skilllist_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&uuid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&cash_) -
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_tb_Person_person_2eproto.base);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  email_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  itemlist_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  equiplist_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  tasklist_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  skilllist_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&uuid_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&cash_) -
       reinterpret_cast<char*>(&uuid_)) + sizeof(cash_));
 }
 
 tb_Person::~tb_Person() {
   // @@protoc_insertion_point(destructor:db.tb_Person)
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 void tb_Person::SharedDtor() {
-  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  email_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  itemlist_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  equiplist_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  tasklist_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  skilllist_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  email_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  itemlist_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  equiplist_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  tasklist_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  skilllist_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
+void tb_Person::ArenaDtor(void* object) {
+  tb_Person* _this = reinterpret_cast< tb_Person* >(object);
+  (void)_this;
+}
+void tb_Person::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void tb_Person::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* tb_Person::descriptor() {
-  ::protobuf_person_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_person_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
 const tb_Person& tb_Person::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_person_2eproto::scc_info_tb_Person.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_tb_Person_person_2eproto.base);
   return *internal_default_instance();
 }
 
 
 void tb_Person::Clear() {
 // @@protoc_insertion_point(message_clear_start:db.tb_Person)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  email_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  itemlist_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  equiplist_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  tasklist_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  skilllist_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.ClearToEmpty();
+  email_.ClearToEmpty();
+  itemlist_.ClearToEmpty();
+  equiplist_.ClearToEmpty();
+  tasklist_.ClearToEmpty();
+  skilllist_.ClearToEmpty();
   ::memset(&uuid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&cash_) -
       reinterpret_cast<char*>(&uuid_)) + sizeof(cash_));
-  _internal_metadata_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool tb_Person::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:db.tb_Person)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* tb_Person::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
       // uint64 uuid = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &uuid_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          uuid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // int32 job = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &job_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          job_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // string name = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->name().data(), static_cast<int>(this->name().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "db.tb_Person.name"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "db.tb_Person.name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // uint64 number = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &number_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          number_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // string email = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_email()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->email().data(), static_cast<int>(this->email().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "db.tb_Person.email"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          auto str = _internal_mutable_email();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "db.tb_Person.email"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // .db.PhoneType phonetype = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_phonetype(static_cast< ::db::PhoneType >(value));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_phonetype(static_cast<::db::PhoneType>(val));
+        } else goto handle_unusual;
+        continue;
       // double money = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(57u /* 57 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &money_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 57)) {
+          money_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
       // float cash = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(69u /* 69 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &cash_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 69)) {
+          cash_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
       // bytes itemlist = 20;
-      case 20: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(162u /* 162 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_itemlist()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 162)) {
+          auto str = _internal_mutable_itemlist();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // bytes equiplist = 21;
-      case 21: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(170u /* 170 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_equiplist()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 170)) {
+          auto str = _internal_mutable_equiplist();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // bytes tasklist = 22;
-      case 22: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(178u /* 178 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_tasklist()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 178)) {
+          auto str = _internal_mutable_tasklist();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // bytes skilllist = 23;
-      case 23: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(186u /* 186 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_skilllist()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 23:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 186)) {
+          auto str = _internal_mutable_skilllist();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
-        if (tag == 0) {
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
       }
-    }
-  }
+    }  // switch
+  }  // while
 success:
-  // @@protoc_insertion_point(parse_success:db.tb_Person)
-  return true;
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:db.tb_Person)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto success;
+#undef CHK_
 }
 
-void tb_Person::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:db.tb_Person)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint64 uuid = 1;
-  if (this->uuid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->uuid(), output);
-  }
-
-  // int32 job = 2;
-  if (this->job() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->job(), output);
-  }
-
-  // string name = 3;
-  if (this->name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->name().data(), static_cast<int>(this->name().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "db.tb_Person.name");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->name(), output);
-  }
-
-  // uint64 number = 4;
-  if (this->number() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->number(), output);
-  }
-
-  // string email = 5;
-  if (this->email().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->email().data(), static_cast<int>(this->email().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "db.tb_Person.email");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->email(), output);
-  }
-
-  // .db.PhoneType phonetype = 6;
-  if (this->phonetype() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      6, this->phonetype(), output);
-  }
-
-  // double money = 7;
-  if (this->money() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->money(), output);
-  }
-
-  // float cash = 8;
-  if (this->cash() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->cash(), output);
-  }
-
-  // bytes itemlist = 20;
-  if (this->itemlist().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      20, this->itemlist(), output);
-  }
-
-  // bytes equiplist = 21;
-  if (this->equiplist().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      21, this->equiplist(), output);
-  }
-
-  // bytes tasklist = 22;
-  if (this->tasklist().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      22, this->tasklist(), output);
-  }
-
-  // bytes skilllist = 23;
-  if (this->skilllist().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      23, this->skilllist(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:db.tb_Person)
-}
-
-::google::protobuf::uint8* tb_Person::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+::PROTOBUF_NAMESPACE_ID::uint8* tb_Person::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:db.tb_Person)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 uuid = 1;
   if (this->uuid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->uuid(), target);
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_uuid(), target);
   }
 
   // int32 job = 2;
   if (this->job() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->job(), target);
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_job(), target);
   }
 
   // string name = 3;
   if (this->name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->name().data(), static_cast<int>(this->name().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "db.tb_Person.name");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->name(), target);
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_name(), target);
   }
 
   // uint64 number = 4;
   if (this->number() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->number(), target);
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_number(), target);
   }
 
   // string email = 5;
   if (this->email().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->email().data(), static_cast<int>(this->email().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_email().data(), static_cast<int>(this->_internal_email().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "db.tb_Person.email");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->email(), target);
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_email(), target);
   }
 
   // .db.PhoneType phonetype = 6;
   if (this->phonetype() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      6, this->phonetype(), target);
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      6, this->_internal_phonetype(), target);
   }
 
   // double money = 7;
-  if (this->money() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->money(), target);
+  if (!(this->money() <= 0 && this->money() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(7, this->_internal_money(), target);
   }
 
   // float cash = 8;
-  if (this->cash() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->cash(), target);
+  if (!(this->cash() <= 0 && this->cash() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(8, this->_internal_cash(), target);
   }
 
   // bytes itemlist = 20;
   if (this->itemlist().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        20, this->itemlist(), target);
+    target = stream->WriteBytesMaybeAliased(
+        20, this->_internal_itemlist(), target);
   }
 
   // bytes equiplist = 21;
   if (this->equiplist().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        21, this->equiplist(), target);
+    target = stream->WriteBytesMaybeAliased(
+        21, this->_internal_equiplist(), target);
   }
 
   // bytes tasklist = 22;
   if (this->tasklist().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        22, this->tasklist(), target);
+    target = stream->WriteBytesMaybeAliased(
+        22, this->_internal_tasklist(), target);
   }
 
   // bytes skilllist = 23;
   if (this->skilllist().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        23, this->skilllist(), target);
+    target = stream->WriteBytesMaybeAliased(
+        23, this->_internal_skilllist(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:db.tb_Person)
   return target;
@@ -655,104 +456,107 @@ size_t tb_Person::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:db.tb_Person)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // string name = 3;
   if (this->name().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->name());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
   }
 
   // string email = 5;
   if (this->email().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->email());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_email());
   }
 
   // bytes itemlist = 20;
   if (this->itemlist().size() > 0) {
     total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->itemlist());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_itemlist());
   }
 
   // bytes equiplist = 21;
   if (this->equiplist().size() > 0) {
     total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->equiplist());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_equiplist());
   }
 
   // bytes tasklist = 22;
   if (this->tasklist().size() > 0) {
     total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->tasklist());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_tasklist());
   }
 
   // bytes skilllist = 23;
   if (this->skilllist().size() > 0) {
     total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->skilllist());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_skilllist());
   }
 
   // uint64 uuid = 1;
   if (this->uuid() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->uuid());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_uuid());
   }
 
   // uint64 number = 4;
   if (this->number() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->number());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_number());
   }
 
   // int32 job = 2;
   if (this->job() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->job());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_job());
   }
 
   // .db.PhoneType phonetype = 6;
   if (this->phonetype() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->phonetype());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_phonetype());
   }
 
   // double money = 7;
-  if (this->money() != 0) {
+  if (!(this->money() <= 0 && this->money() >= 0)) {
     total_size += 1 + 8;
   }
 
   // float cash = 8;
-  if (this->cash() != 0) {
+  if (!(this->cash() <= 0 && this->cash() >= 0)) {
     total_size += 1 + 4;
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void tb_Person::MergeFrom(const ::google::protobuf::Message& from) {
+void tb_Person::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:db.tb_Person)
   GOOGLE_DCHECK_NE(&from, this);
   const tb_Person* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const tb_Person>(
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<tb_Person>(
           &from);
-  if (source == NULL) {
+  if (source == nullptr) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:db.tb_Person)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:db.tb_Person)
     MergeFrom(*source);
@@ -762,55 +566,49 @@ void tb_Person::MergeFrom(const ::google::protobuf::Message& from) {
 void tb_Person::MergeFrom(const tb_Person& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:db.tb_Person)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from.name().size() > 0) {
-
-    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    _internal_set_name(from._internal_name());
   }
   if (from.email().size() > 0) {
-
-    email_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.email_);
+    _internal_set_email(from._internal_email());
   }
   if (from.itemlist().size() > 0) {
-
-    itemlist_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.itemlist_);
+    _internal_set_itemlist(from._internal_itemlist());
   }
   if (from.equiplist().size() > 0) {
-
-    equiplist_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.equiplist_);
+    _internal_set_equiplist(from._internal_equiplist());
   }
   if (from.tasklist().size() > 0) {
-
-    tasklist_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.tasklist_);
+    _internal_set_tasklist(from._internal_tasklist());
   }
   if (from.skilllist().size() > 0) {
-
-    skilllist_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.skilllist_);
+    _internal_set_skilllist(from._internal_skilllist());
   }
   if (from.uuid() != 0) {
-    set_uuid(from.uuid());
+    _internal_set_uuid(from._internal_uuid());
   }
   if (from.number() != 0) {
-    set_number(from.number());
+    _internal_set_number(from._internal_number());
   }
   if (from.job() != 0) {
-    set_job(from.job());
+    _internal_set_job(from._internal_job());
   }
   if (from.phonetype() != 0) {
-    set_phonetype(from.phonetype());
+    _internal_set_phonetype(from._internal_phonetype());
   }
-  if (from.money() != 0) {
-    set_money(from.money());
+  if (!(from.money() <= 0 && from.money() >= 0)) {
+    _internal_set_money(from._internal_money());
   }
-  if (from.cash() != 0) {
-    set_cash(from.cash());
+  if (!(from.cash() <= 0 && from.cash() >= 0)) {
+    _internal_set_cash(from._internal_cash());
   }
 }
 
-void tb_Person::CopyFrom(const ::google::protobuf::Message& from) {
+void tb_Person::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_copy_from_start:db.tb_Person)
   if (&from == this) return;
   Clear();
@@ -828,47 +626,35 @@ bool tb_Person::IsInitialized() const {
   return true;
 }
 
-void tb_Person::Swap(tb_Person* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void tb_Person::InternalSwap(tb_Person* other) {
   using std::swap;
-  name_.Swap(&other->name_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  email_.Swap(&other->email_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  itemlist_.Swap(&other->itemlist_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  equiplist_.Swap(&other->equiplist_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  tasklist_.Swap(&other->tasklist_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  skilllist_.Swap(&other->skilllist_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  swap(uuid_, other->uuid_);
-  swap(number_, other->number_);
-  swap(job_, other->job_);
-  swap(phonetype_, other->phonetype_);
-  swap(money_, other->money_);
-  swap(cash_, other->cash_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  email_.Swap(&other->email_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  itemlist_.Swap(&other->itemlist_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  equiplist_.Swap(&other->equiplist_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  tasklist_.Swap(&other->tasklist_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  skilllist_.Swap(&other->skilllist_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(tb_Person, cash_)
+      + sizeof(tb_Person::cash_)
+      - PROTOBUF_FIELD_OFFSET(tb_Person, uuid_)>(
+          reinterpret_cast<char*>(&uuid_),
+          reinterpret_cast<char*>(&other->uuid_));
 }
 
-::google::protobuf::Metadata tb_Person::GetMetadata() const {
-  protobuf_person_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_person_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata tb_Person::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace db
-namespace google {
-namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::db::tb_Person* Arena::CreateMaybeMessage< ::db::tb_Person >(Arena* arena) {
-  return Arena::CreateInternal< ::db::tb_Person >(arena);
+PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::db::tb_Person* Arena::CreateMaybeMessage< ::db::tb_Person >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::db::tb_Person >(arena);
 }
-}  // namespace protobuf
-}  // namespace google
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
+#include <google/protobuf/port_undef.inc>
