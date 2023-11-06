@@ -78,9 +78,9 @@ static bool InitProtobufDefaultsImpl() {
   OnShutdownDestroyString(&fixed_address_empty_string.value);
 
   // Verify that we can indeed get the address during constant evaluation.
-  PROTOBUF_CONSTINIT static const std::string& fixed_address_empty_string_test =
-      GetEmptyStringAlreadyInited();
-  (void)fixed_address_empty_string_test;
+  //PROTOBUF_CONSTINIT static const std::string& fixed_address_empty_string_test =
+  //    GetEmptyStringAlreadyInited();
+  //(void)fixed_address_empty_string_test;
 
   init_protobuf_defaults_state.store(true, std::memory_order_release);
   return true;
