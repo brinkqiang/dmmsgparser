@@ -19,26 +19,49 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef __DMSNOWFLAKE_H_INCLUDE__
-#define __DMSNOWFLAKE_H_INCLUDE__
 
-#include <cstdint>
-#include <mutex>
-#include <memory>
+#ifndef __DMMSGPARSER_MODULE_H_INCLUDE__
+#define __DMMSGPARSER_MODULE_H_INCLUDE__
 
-class CDMIDGeneratorImpl;
-class CDMIDGenerator
+#include "dmmsgparser.h"
+#include "dmnetbuffer.h"
+#include "msgdispatcher.sys.h"
+
+class CDMMsgParser_module : public IDMMsgParserModule
 {
 public:
-	CDMIDGenerator(int region_id = 0, int worker_id = 0);//region_id in (0-15) , worker_id in (0-1023)
-	~CDMIDGenerator();
+    CDMMsgParser_module();
 
-	void Init(int region_id = 0, int worker_id = 0);
-	uint64_t GetNextID();
+    virtual ~CDMMsgParser_module();
+
+    virtual void DMAPI Release(void);
+
+    virtual void DMAPI Test(void);
+
+    virtual int DMAPI OnRecv(const char* data, int size);
+
+    virtual void DMAPI DoClose(const std::string& strError);
+
+    virtual bool DMAPI SendMsg(uint16_t msgID, ::google::protobuf::Message& msg);
+
+    virtual void DMAPI SetPacketParser(IDMPacketParser* sink);
+
+    virtual void DMAPI SetMsgSession(IDMMsgParserSession* sink);
+
+    template <typename T>
+    uint16_t GetMSGID()
+    {
+        return GetMsgID<T>();
+    }
 
 private:
-	std::unique_ptr<CDMIDGeneratorImpl> m_oImpl;
+    IDMPacketParser* m_poPacketParser;
+    IDMMsgParserSession* m_poMsgSession;
+    DMMESSAGE_QUEUE m_WriteMsgs;
+    CDMNetBuffer m_oNetBuffer;
+
+    std::vector<char> m_vecBuff;
 };
 
 
-#endif // __DMSNOWFLAKE_H_INCLUDE__
+#endif // __DMMSGPARSER_MODULE_H_INCLUDE__

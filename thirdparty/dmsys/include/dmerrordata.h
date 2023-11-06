@@ -37,6 +37,28 @@ public:
         std::cout << strError << std::endl;
     }
 
+    virtual void OnFinishJSON()
+    {
+
+    }
+    virtual void OnFinishXML()
+    {
+
+    }
+    virtual void OnFinishXLSX()
+    {
+
+    }
+    virtual void OnFinishCSV()
+    {
+
+    }
+
+    virtual void OnSave()
+    {
+
+    }
+
     virtual std::string GetPath()
     {
         return std::string();

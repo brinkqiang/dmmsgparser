@@ -53,9 +53,7 @@ class CDMQueue {
 
         m_pArray[m_nTail] = ptr;
 
-        if ( ++m_nTail >= m_nSize ) {
-            m_nTail = 0;
-        }
+        m_nTail = (m_nTail + 1) % m_nSize;
 
         return true;
     }
@@ -70,9 +68,7 @@ class CDMQueue {
 
         void* ptr = m_pArray[m_nHead];
 
-        if ( ++m_nHead >= m_nSize ) {
-            m_nHead = 0;
-        }
+        m_nHead = (m_nHead + 1) % m_nSize;
 
         return ptr;
     }
