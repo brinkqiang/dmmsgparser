@@ -36,6 +36,7 @@ public:
     CPlayer()
     {
         CDMDispatcher_db::Init();
+        SessionInit();
     }
 
     virtual ~CPlayer()
