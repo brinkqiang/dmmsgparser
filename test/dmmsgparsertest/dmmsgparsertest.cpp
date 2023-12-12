@@ -7,7 +7,7 @@ class CPlayer : public CDMMsgParserSession
     , public CDMDispatcher_db
 {
 public:
-    CPlayer(){ SessionInit();}
+    CPlayer(){ }
     virtual ~CPlayer(){}
     virtual MSG_STYLE GetMsgStyle(){ return MSG_STYLE_DMSTYLE;}
     virtual void DMAPI OnMessage(uint16_t msgID, void* data, int size)
@@ -36,11 +36,6 @@ public:
 int main(int argc, char* argv[]) {
 
     CPlayer oPlayer;
-
-    if (!oPlayer.SessionInit())
-    {
-        return -1;
-    }
 
     db::tb_Person tb;
 

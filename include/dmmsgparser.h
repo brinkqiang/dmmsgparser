@@ -99,7 +99,7 @@ class CDMMsgParserSession : public IDMMsgParserSession
 public:
     CDMMsgParserSession()
     {
-
+        SessionInit();
     }
 
     virtual ~CDMMsgParserSession()
