@@ -1,4 +1,4 @@
-
+﻿
 #include "dmmsgparser.h"
 #include <memory>
 #include "person.msg.h"
@@ -7,31 +7,17 @@ class CPlayer : public CDMMsgParserSession
     , public CDMDispatcher_db
 {
 public:
-    CPlayer()
-    {
-        CDMDispatcher_db::Init();
-        SessionInit();
-    }
-
-    virtual ~CPlayer()
-    {
-    }
-
-    virtual MSG_STYLE GetMsgStyle()
-    {
-        return MSG_STYLE_DMSTYLE;
-    }
-
+    CPlayer(){ SessionInit();}
+    virtual ~CPlayer(){}
+    virtual MSG_STYLE GetMsgStyle(){ return MSG_STYLE_DMSTYLE;}
     virtual void DMAPI OnMessage(uint16_t msgID, void* data, int size)
     {
         NetCall(msgID, data, size, this);
     }
-
     virtual bool DMAPI Send(const char* data, int size)
     {
         return 0 == OnRecv(data, size);
     }
-
     virtual int Ontb_Person(::google::protobuf::Message& msg, int nLen, const void* pObject)
     {
         ::db::tb_Person* pData = dynamic_cast<::db::tb_Person*>(&msg);
@@ -46,8 +32,6 @@ public:
     }
 
 };
-
-using namespace std;
 
 int main(int argc, char* argv[]) {
 
