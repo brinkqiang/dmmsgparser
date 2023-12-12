@@ -37,6 +37,11 @@ int main(int argc, char* argv[]) {
 
     CPlayer oPlayer;
 
+    if (!oPlayer.SessionInit())
+    {
+        return -1;
+    }
+
     db::tb_Person tb;
 
     tb.set_uuid(1);
