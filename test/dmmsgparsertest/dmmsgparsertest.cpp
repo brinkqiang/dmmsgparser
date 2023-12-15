@@ -1,6 +1,5 @@
-﻿
+﻿#include <memory>
 #include "dmmsgparser.h"
-#include <memory>
 #include "person.msg.h"
 
 class CPlayer : public CDMMsgParserSession
