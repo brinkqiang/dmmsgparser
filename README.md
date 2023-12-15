@@ -25,39 +25,25 @@ Copyright (c) 2013-2018 brinkqiang (brink.qiang@gmail.com)
 dmmsgparser
 ```cpp
 
-#include "dmmsgparser.h"
 #include <memory>
+#include "dmmsgparser.h"
 #include "person.msg.h"
 
 class CPlayer : public CDMMsgParserSession
     , public CDMDispatcher_db
 {
 public:
-    CPlayer()
-    {
-        CDMDispatcher_db::Init();
-        SessionInit();
-    }
-
-    virtual ~CPlayer()
-    {
-    }
-
-    virtual MSG_STYLE GetMsgStyle()
-    {
-        return MSG_STYLE_DMSTYLE;
-    }
-
+    CPlayer(){ }
+    virtual ~CPlayer(){}
+    virtual MSG_STYLE GetMsgStyle(){ return MSG_STYLE_DMSTYLE;}
     virtual void DMAPI OnMessage(uint16_t msgID, void* data, int size)
     {
         NetCall(msgID, data, size, this);
     }
-    
     virtual bool DMAPI Send(const char* data, int size)
     {
         return 0 == OnRecv(data, size);
     }
-
     virtual int Ontb_Person(::google::protobuf::Message& msg, int nLen, const void* pObject)
     {
         ::db::tb_Person* pData = dynamic_cast<::db::tb_Person*>(&msg);
@@ -68,14 +54,12 @@ public:
     template<class T>
     bool DMAPI SendMsg(T& msg)
     {
-	    return CDMMsgParserSession::SendMsg(GetMsgID<T>(), msg);
+        return CDMMsgParserSession::SendMsg(GetMsgID<T>(), msg);
     }
 
 };
 
-using namespace std;
-
-int main( int argc, char* argv[] ) {
+int main(int argc, char* argv[]) {
 
     CPlayer oPlayer;
 
@@ -100,6 +84,7 @@ int main( int argc, char* argv[] ) {
 
     return 0;
 }
+
 ```
 ## Contacts
 [![Join the chat](https://badges.gitter.im/brinkqiang/dmmsgparser/Lobby.svg)](https://gitter.im/brinkqiang/dmmsgparser)
